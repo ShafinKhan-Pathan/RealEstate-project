@@ -415,31 +415,36 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4">
+        <div id="news-carousel" class="swiper">
+          <div class="swiper-wrapper">
+            {% for team in teams %}
+            <div class="carousel-item-c swiper-slide">
+
+          <div class="col-md-10">
             <div class="card-box-d">
               <div class="card-img-d">
-                <img src="{% static 'assets/img/agent-4.jpg' %}" alt="" class="img-d img-fluid">
+                <img src="{{team.photo.url}}" alt="" class="img-d img-fluid">
               </div>
               <div class="card-overlay card-overlay-hover">
                 <div class="card-header-d">
+
                   <div class="card-title-d align-self-center">
                     <h3 class="title-d">
-                      <a href="agent-single.html" class="link-two">Margaret Sotillo
-                        <br> Escala</a>
+                      <a href="agent-single.html" class="link-two">{{team.firstname}}
+                        <br> {{team.lastname}}</a>
                     </h3>
                   </div>
                 </div>
                 <div class="card-body-d">
                   <p class="content-d color-text-a">
-                    Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                    <strong>{{team.designation}}</strong>
                   </p>
                   <div class="info-agents color-a">
                     <p>
-                      <strong>Phone: </strong> +54 356 945234
+                      <strong>Phone: </strong> {{team.phone}}
                     </p>
                     <p>
-                      <strong>Email: </strong> agents@example.com
+                      <strong>Email: </strong> {{team.email}}
                     </p>
                   </div>
                 </div>
@@ -447,145 +452,39 @@
                   <div class="socials-footer d-flex justify-content-center">
                     <ul class="list-inline">
                       <li class="list-inline-item">
-                        <a href="#" class="link-one">
+                        <a href="{{team.facebook}}" target="_blank" class="link-one">
                           <i class="bi bi-facebook" aria-hidden="true"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a href="#" class="link-one">
+                        <a href="{{team.twitter}}" target="_blank" class="link-one">
                           <i class="bi bi-twitter" aria-hidden="true"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a href="#" class="link-one">
+                        <a href="{{team.insta}}" target="_blank" class="link-one">
                           <i class="bi bi-instagram" aria-hidden="true"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a href="#" class="link-one">
+                        <a href="{{team.linkedin}}" target="_blank" class="link-one">
                           <i class="bi bi-linkedin" aria-hidden="true"></i>
                         </a>
                       </li>
                     </ul>
                   </div>
                 </div>
+
               </div>
+
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card-box-d">
-              <div class="card-img-d">
-                <img src="{% static 'assets/img/agent-1.jpg' %}" alt="" class="img-d img-fluid">
-              </div>
-              <div class="card-overlay card-overlay-hover">
-                <div class="card-header-d">
-                  <div class="card-title-d align-self-center">
-                    <h3 class="title-d">
-                      <a href="agent-single.html" class="link-two">Stiven Spilver
-                        <br> Darw</a>
-                    </h3>
-                  </div>
-                </div>
-                <div class="card-body-d">
-                  <p class="content-d color-text-a">
-                    Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
-                  </p>
-                  <div class="info-agents color-a">
-                    <p>
-                      <strong>Phone: </strong> +54 356 945234
-                    </p>
-                    <p>
-                      <strong>Email: </strong> agents@example.com
-                    </p>
-                  </div>
-                </div>
-                <div class="card-footer-d">
-                  <div class="socials-footer d-flex justify-content-center">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-facebook" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-twitter" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-linkedin" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-box-d">
-              <div class="card-img-d">
-                <img src="{% static 'assets/img/agent-5.jpg' %}" alt="" class="img-d img-fluid">
-              </div>
-              <div class="card-overlay card-overlay-hover">
-                <div class="card-header-d">
-                  <div class="card-title-d align-self-center">
-                    <h3 class="title-d">
-                      <a href="agent-single.html" class="link-two">Emma Toledo
-                        <br> Cascada</a>
-                    </h3>
-                  </div>
-                </div>
-                <div class="card-body-d">
-                  <p class="content-d color-text-a">
-                    Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
-                  </p>
-                  <div class="info-agents color-a">
-                    <p>
-                      <strong>Phone: </strong> +54 356 945234
-                    </p>
-                    <p>
-                      <strong>Email: </strong> agents@example.com
-                    </p>
-                  </div>
-                </div>
-                <div class="card-footer-d">
-                  <div class="socials-footer d-flex justify-content-center">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-facebook" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-twitter" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-linkedin" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
-      </div>
+        {% endfor %}
+        </div>
+        </div>
+
     </section><!-- End Agents Section -->
 
     <!-- ======= Latest News Section ======= -->
