@@ -1,12 +1,20 @@
 from django.shortcuts import render
 from .models import Team
+from assets.models import Asset
 
 # Create your views here.
 
 def home(request):
     teams = Team.objects.all()
+    featured_assets = Asset.objects.order_by('-created_date').filter(is_featured=True)
+    all_assets = Asset.objects.order_by('created_date')
+    intro_assets = Asset.objects.all()
+    # order_by('-created_date').filter(is_featured=True)
     data = {
         'teams': teams,
+        'featured_assets':featured_assets,
+        'all_assets':all_assets,
+        'intro_assets':intro_assets,
     }
     return render(request,'pages/home.html',data)
 
@@ -17,8 +25,8 @@ def about(request):
     }
     return render(request,'pages/about.html',data)
 
-def property(request):
-    return render(request,'pages/property.html')
-
 def contact(request):
     return render(request,'pages/contact.html')
+
+def services(request):
+    return render(request,'pages/services.html')
