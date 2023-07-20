@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+{% load humanize %}
+<main id="main">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">{{single_asset.asset_id}} {{single_asset.asset_title}}</h1>
+              <span class="color-text-a">{{single_asset.city}}, {{single_asset.state}}</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="{% url 'assets' %}">Assets</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  {{single_asset.asset_id}} {{single_asset.asset_title}}
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro Single-->
+<!-- ======= Property Single ======= -->
+<section class="property-single nav-arrow-b">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div id="property-single-carousel" class="swiper">
+          <div class="swiper-wrapper">
+            {% if single_asset.asset_photo %}
+            <div class="carousel-item-b swiper-slide">
+              <img src="{{single_asset.asset_photo.url}}" style="max-height:650px;max-width:800px;" alt="">
+            </div>
+            {% endif %}
+            {% if single_asset.asset_photo_1 %}
+            <div class="carousel-item-b swiper-slide">
+              <img src="{{single_asset.asset_photo_1.url}}" style="max-height:650px;max-width:800px;" alt="">
+            </div>
+            {% endif %}
+            {% if single_asset.asset_photo_2 %}
+            <div class="carousel-item-b swiper-slide">
+              <img src="{{single_asset.asset_photo_2.url}}" style="max-height:650px;max-width:800px;" alt="">
+            </div>
+            {% endif %}
+            {% if single_asset.asset_photo_3 %}
+            <div class="carousel-item-b swiper-slide">
+              <img src="{{single_asset.asset_photo_3.url}}" style="max-height:650px;max-width:800px;" alt="">
+            </div>
+            {% endif %}
+            {% if single_asset.asset_photo_4 %}
+            <div class="carousel-item-b swiper-slide">
+              <img src="{{single_asset.asset_photo_4.url}}" style="max-height:650px;max-width:800px;" alt="">
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="property-single-carousel-pagination carousel-pagination"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+
+        <div class="row justify-content-between">
+          <div class="col-md-5 col-lg-4">
+            <div class="property-price d-flex justify-content-center foo">
+              <div class="card-header-c d-flex">
+                <div class="card-box-ico">
+                  <span class="bi bi-cash">$</span>
+                </div>
+                <div class="card-title-c align-self-center">
+                  <h5 class="title-c">{{single_asset.price | intcomma}}</h5>
+                </div>
+              </div>
+            </div>
+            <div class="property-summary">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="title-box-d section-t4">
+                    <h3 class="title-d">Quick Summary</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-list">
+                <ul class="list">
+                  <li class="d-flex justify-content-between">
+                    <strong>Property ID:</strong>
+                    <span>{{single_asset.asset_id}}</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <strong>Location:</strong>
+                    <span>{{single_asset.city}}, {{single_asset.state}}</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <strong>Property Type:</strong>
+                    <span>{{single_asset.type}}</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <strong>Condition:</strong>
+                    <span>{{single_asset.condition}}</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <strong>Area:</strong>
+                    <span>{{single_asset.area}}
+                      <sup>2</sup>
+                    </span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <strong>Beds:</strong>
+                    <span>{{single_asset.bed}}</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <strong>Baths:</strong>
+                    <span>{{single_asset.bath}}</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <strong>Garage:</strong>
+                    <span>{{single_asset.garage}}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7 col-lg-7 section-md-t3">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="title-box-d">
+                  <h3 class="title-d">Assets Description</h3>
+                </div>
+              </div>
+            </div>
+            <div class="property-description">
+              <p>
+                {{single_asset.description | safe}}
+              </p>
+              <!-- <p class="description color-text-a no-margin">
+                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget
+                malesuada. Quisque velit nisi,
+                pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
+              </p> -->
+            </div>
+            <div class="row section-t3">
+              <div class="col-sm-12">
+                <div class="title-box-d">
+                  <h3 class="title-d">Amenities</h3>
+                </div>
+              </div>
+            </div>
+            <div class="amenities-list color-text-a">
+              <ul class="list-a no-margin">
+              <li>
+                {{single_asset.amenities}}
+              </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" style="display:flex;justify-content: center;">
+      <div class="col-md-12">
+        <div class="row section-t3">
+          <div class="col-sm-12">
+            <div class="title-box-d">
+              <h3 class="title-d">Contact Agent</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+  <div class="col-md-12 col-lg-8">
+    <div class="property-contact">
+      <form class="form-a">
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <div class="form-group">
+              <input type="text" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
+            </div>
+          </div>
+          <div class="col-md-12 mb-3">
+            <div class="form-group">
+              <input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
+            </div>
+          </div>
+          <div class="col-md-12 mb-3">
+            <div class="form-group">
+              <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
+            </div>
+          </div>
+          <div class="col-md-12 mt-3">
+            <button type="submit" class="btn btn-a">Send Message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+        <!-- <div class="row">
+          <div class="col-md-12 col-lg-4">
+            <div class="property-contact">
+              <form class="form-a">
+                <div class="row">
+                  <div class="col-md-12 mb-1">
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-1">
+                    <div class="form-group">
+                      <input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-1">
+                    <div class="form-group">
+                      <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mt-3">
+                    <button type="submit" class="btn btn-a">Send Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section><!-- End Property Single-->
+</main>
+
+{% endblock %}

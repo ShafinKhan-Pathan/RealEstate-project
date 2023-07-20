@@ -23,11 +23,11 @@
                       <br> {{intro.state}}
                     </p>
                     <h1 class="intro-title mb-4 ">
-                      <span class="color-b">{{intro.asset_id}}, </span>
-                      <br>{{intro.asset_title}}
+                      <a href="{% url 'asset_details' intro.id %}"><span class="color-b">{{intro.asset_id}}, <a/></span>
+                      <a href="{% url 'asset_details' intro.id %}"><br><span class="color-b">{{intro.asset_title}}</a></span>
                     </h1>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">$ {{intro.price | intcomma}}</span></a>
+                      <a href="{% url 'asset_details' intro.id %}"><span class="price-a">$ {{intro.price | intcomma}}</span></a>
                     </p>
                   </div>
                 </div>
@@ -75,7 +75,7 @@
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="property-single.html">{{asset.asset_id}}
+                        <a href="{% url 'asset_details' asset.id %}">{{asset.asset_id}}
                           <br /> {{asset.asset_title}}</a>
                       </h2>
                     </div>
@@ -83,7 +83,7 @@
                       <div class="price-box d-flex">
                         <span class="price-a">${{asset.price | intcomma}}</span>
                       </div>
-                      <a href="#" class="link-a">Click here to view
+                      <a href="{% url 'asset_details' asset.id %}" class="link-a">Explore further by clicking here
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
@@ -133,7 +133,7 @@
                 <h2 class="title-a">All Assets</h2>
               </div>
               <div class="title-link">
-                <a href="blog-grid.html">All Assets
+                <a href="{% url 'assets' %}">All Assets
                   <span class="bi bi-chevron-right"></span>
                 </a>
               </div>
@@ -156,7 +156,7 @@
                     </div>
                     <div class="card-title-b">
                       <h2 class="title-2">
-                        <a href="blog-single.html">{{asset.asset_id}}
+                        <a href="{% url 'asset_details' asset.id %}">{{asset.asset_id}}
                           <br> {{asset.asset_title}}</a>
                       </h2>
                     </div>
