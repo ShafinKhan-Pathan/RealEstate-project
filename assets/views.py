@@ -28,17 +28,3 @@ def asset_details(request,id):
         'single_asset':single_asset,
     }
     return render(request,'assets/asset_details.html',data)
-
-
-def search(request):
-    assets = Asset.objects.order_by('-created_date')
-
-    if 'keyword' in request.GET:
-        keyword = request.GET['keyword']
-        if keyword:
-            assets = assets.filter(description__icontains=keyword)
-
-    data = {
-        'assets':assets,
-    }
-    return render(request,'assets/search.html',data)

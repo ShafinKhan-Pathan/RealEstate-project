@@ -19,8 +19,7 @@
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top">{{intro.city}}
-                      <br> {{intro.state}}
+                    <p class="intro-title-top"><h4 class="color-b">{{intro.city}}, {{intro.state}}</h4>
                     </p>
                     <h1 class="intro-title mb-4 ">
                       <a href="{% url 'asset_details' intro.id %}"><span class="color-b">{{intro.asset_id}}, <a/></span>
@@ -264,7 +263,6 @@
         {% endfor %}
         </div>
         </div>
-
     </section><!-- End Agents Section -->
 
   </main><!-- End #main -->

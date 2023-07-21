@@ -15,6 +15,8 @@ def home(request):
         'featured_assets':featured_assets,
         'all_assets':all_assets,
         'intro_assets':intro_assets,
+        #'search_fields':search_fields,
+
     }
     return render(request,'pages/home.html',data)
 
