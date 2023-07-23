@@ -1,3 +1,5 @@
+{% load humanize %}
+
 <!-- ======= Property Search Section ======= -->
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
@@ -7,98 +9,166 @@
     </div>
     <span class="close-box-collapse right-boxed bi bi-x"></span>
     <div class="box-collapse-wrap form">
-      <form class="form-a">
+      <form method="get" class="form-a" action="{% url 'search' %}">
         <div class="row">
           <div class="col-md-12 mb-2">
             <div class="form-group">
               <label class="pb-2" for="Type">Keyword</label>
-              <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword" name="keyword">
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="Type">Type</label>
-              <select class="form-control form-select form-control-a" id="Type">
-                <option>All Type</option>
-                <option>For Rent</option>
-                <option>For Sale</option>
-                <option>Open House</option>
+              <!-- <input type="text" class="form-control form-control-lg form-control-a" placeholder="type" name="type"> -->
+
+              <select class="form-control form-select form-control-a search_fields" id="Type" name="type">
+                <option selected="true" disabled="disabled">Home Type</option>
+                {% for type in type_search %}
+                  <option value="{{type}}">{{type}}</option>
+                {% endfor %}
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="city">City</label>
-              <select class="form-control form-select form-control-a" id="city">
-                <option>All City</option>
-                <option>Alabama</option>
-                <option>Arizona</option>
-                <option>California</option>
-                <option>Colorado</option>
+              <!-- <input type="text" class="form-control form-control-lg form-control-a" placeholder="Enter your city" name="city"> -->
+
+              <select class="form-control form-select form-control-a search_fields" id="city" name="city">
+                <option selected="true" disabled="disabled">Locations</option>
+                {% for city in city_search %}
+                  <option value="{{city}}">{{city}}</option>
+                {% endfor %}
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="bedrooms">Bedrooms</label>
-              <select class="form-control form-select form-control-a" id="bedrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
+              <!-- <input type="text" class="form-control form-control-lg form-control-a" placeholder="No. Of Beds" name="bed"> -->
+
+              <select class="form-control form-select form-control-a search_fields" id="bedrooms" name="bed">
+                <option selected="true" disabled="disabled">No. of Beds</option>
+                {% for bed in bed_search %}
+                  <option value="{{bed}}">{{bed}}</option>
+                {% endfor %}
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="garages">Garages</label>
-              <select class="form-control form-select form-control-a" id="garages">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-                <option>04</option>
+              <select class="form-control form-select form-control-a search_fields" id="garages" name="garage">
+                <option selected="true" disabled="disabled">No. of Garages</option>
+                {% for garage in garage_search %}
+                  <option value="{{garage}}">{{garage}}</option>
+                {% endfor %}
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="bathrooms">Bathrooms</label>
-              <select class="form-control form-select form-control-a" id="bathrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
+              <select class="form-control form-select form-control-a search_fields" id="bathrooms" name="bath">
+                <option selected="true" disabled="disabled">No. of Baths</option>
+                {% for bath in bath_search %}
+                  <option value="{{bath}}">{{bath}}</option>
+                {% endfor %}
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
-              <label class="pb-2" for="price">Min Price</label>
-              <select class="form-control form-select form-control-a" id="price">
-                <option>Unlimite</option>
-                <option>$50,000</option>
-                <option>$100,000</option>
-                <option>$150,000</option>
-                <option>$200,000</option>
+              <label class="pb-2" for="price">Price</label>
+              <select class="form-control form-select form-control-a search_fields" id="price" name="price">
+                <option selected="true" disabled="disabled">Find your ideal price...</option>
+                {% for price in price_search  %}
+                  <option value="{{price}}">$ {{price | intcomma}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="price">Year</label>
+              <select class="form-control form-select form-control-a search_fields" id="year" name="year">
+                <option selected="true" disabled="disabled">Manufacturing Year</option>
+                {% for year in year_search  %}
+                  <option value="{{year}}">{{year}}</option>
+                {% endfor %}
               </select>
             </div>
           </div>
           <div class="col-md-12">
-            <button type="submit" class="btn btn-b">Search Property</button>
+            <button type="submit"  class="btn btn-b">Search Property</button>
           </div>
         </div>
       </form>
     </div>
-  </div><!-- End Property Search Section -->>
+  </div><!-- End Property Search Section -->
 
 <!-- ======= Header/Navbar ======= -->
+<!-- Top header start -->
+<!-- <header class="top-header th-2 top-header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-7">
+                <div class="list-inline">
+                    <a href="tel:+55-4XX-634-7071"><i class="fa fa-phone"></i>+55-4XX-634-7071</a>
+                    <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>info@themevessel.com</a>
+                    <a href="tel:info@themevessel.com"><i class="fa fa-clock-o"></i>Mon - Sun: 8:00am - 6:00pm</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-5">
+                <ul class="top-social-media pull-right">
+                    <li>
+                        <a href="login.html" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
+                    </li>
+                    <li>
+                        <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header> -->
+<!-- ======= Header/Navbar ======= -->
+<!-- Top header start -->
+<!-- <header class="top-header th-2 top-header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-7">
+                <div class="list-inline">
+                    <a href="tel:+55-4XX-634-7071"><i class="fa fa-phone"></i>+55-4XX-634-7071</a>
+                    <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>info@themevessel.com</a>
+                    <a href="tel:info@themevessel.com"><i class="fa fa-clock-o"></i>Mon - Sun: 8:00am - 6:00pm</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-5">
+                <ul class="top-social-media pull-right">
+                    <li>
+                        <a href="login.html" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
+                    </li>
+                    <li>
+                        <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header> -->
+<!-- Top header end -->
+<!-- End Top header -->
+
+
 <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+
 
   <div class="container">
     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
 
-      <span>Login</span>
+      <span></span>
       <span></span>
       <span></span>
     </button>
@@ -172,9 +242,34 @@
       </ul>
     </div>
 
+
+
+
     <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
       <i class="bi bi-search"></i>
     </button>
+
+
+
+
+    <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="{% url 'login' %}"><button type="submit" class="btn btn-a navbar-toggle-box navbar-toggle-box-collapse">Login</button></a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'register' %}"<button type="submit" class="btn btn-a navbar-toggle-box navbar-toggle-box-collapse">Register</button></a>
+
+          <!-- <a class="navbar-brand " href="{% url 'home' %}"><span>Register</span></a> -->
+        </li>
+        </ul>
+      </div>
+
+
+
+
+
+
 
   </div>
 </nav><!-- End Header/Navbar -->

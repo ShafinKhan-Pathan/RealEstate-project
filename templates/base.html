@@ -27,6 +27,7 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
 
+
   <!-- =======================================================
   * Template Name: EstateAgency
   * Updated: May 30 2023 with Bootstrap v5.3.0
@@ -34,6 +35,689 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <!-- <style>
+  /** Top header start **/
+  .top-header{
+  font-family: 'Roboto', sans-serif;
+  display: inline-block;
+  width: 100%;
+  }
+
+  .top-header.bg-active{
+  background: #222e56;
+  }
+
+  .top-header .list-inline {
+  padding: 13px 0;
+  }
+
+  .list-inline a {
+  color: #2eca6;
+  margin-right: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.9;
+  }
+
+  .top-header .list-inline a:last-child{
+  margin-right: 0;
+  }
+
+  .list-inline a i {
+  margin-right: 5px;
+  }
+
+  .top-header ul li {
+  padding: 0 7px;
+  height: 50px;
+  display: inline-block;
+  text-align: center;
+  line-height: 44px;
+  color: #aaa;
+  font-size: 15px;
+  }
+
+  .top-header ul li:last-child{
+  padding-right: 0;
+  }
+
+  .top-header .sign-in, .top-header .sign-in:hover {
+  line-height: 36px;
+  color: #ececec;
+  font-size: 13px;
+  background: #2c3b6d;
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  }
+
+  .top-header ul li a {
+  color: #fff;
+  }
+
+  .top-header .sign-in, .top-header .sign-in:hover
+
+
+  .th-2 .sign-in, .top-header .sign-in:hover {
+  line-height: 50px;
+  color: #fff !important;
+  font-size: 13px;
+  background: #2c3b6d;
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  background: #2eca6a;
+  -webkit-box-shadow: 0px 0px 0px 2px rgba(255,255,255,0.2);
+  box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.2);
+  }
+
+      </style> -->
+      <style>
+      .contact-section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.contact-section .bg-img {
+
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    border-radius:0 20px 20px 0;
+    opacity: 1;
+    width: 100%;
+    z-index: 999;
+    min-height: 496px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-section {
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    opacity: 1;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.contact-section .form-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section .form-section p{
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 15px;
+}
+
+.contact-section .form-section p a{
+    font-weight: 400;
+    color: #535353;
+}
+
+.contact-section .form-section .extra-login {
+    float: left;
+    width: 100%;
+    margin: 25px 0 25px;
+    text-align: center;
+    position: relative;
+}
+
+.contact-section .form-section .extra-login::before {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    height: 1px;
+    background: #d8dcdc;
+    content: "";
+}
+
+.contact-section .form-section .extra-login > span {
+    width: auto;
+    float: none;
+    display: inline-block;
+    background: #fff;
+    padding: 1px 20px;
+    z-index: 1;
+    position: relative;
+    font-family: Open Sans;
+    font-size: 13px;
+    color: #616161;
+    text-transform: capitalize;
+}
+
+.contact-section .form-section ul{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.contact-section .form-section .social-list li {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.contact-section .logo-2 img{
+    margin-bottom: 5px;
+    height: 45px;
+}
+
+.contact-section .form-section .social-list li a {
+    font-size: 12px;
+    font-weight: 600;
+    width: 120px;
+    margin: 2px 0 3px 0;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.contact-section .form-section .social-list li a i{
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    float: left;
+    border-radius: 3px;
+}
+
+.contact-section .form-section .social-list li a span{
+    margin-right: 7px;
+    color: #fff;
+}
+
+.contact-section .form-section .thembo{
+    margin-left: 4px;
+}
+
+.contact-section .form-section h3 {
+    margin: 0 0 25px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #212121;
+    text-align: center;
+}
+
+.contact-section .form-section .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-section .form-section .form-box {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+.contact-section .form-section .form-box input {
+    float: left;
+    width: 100%;
+    padding: 10px 20px 11px 50px;
+    border-radius: 3px;
+}
+
+.contact-section .form-section .form-box .fa-user {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: #717171;
+    font-size: 19px;
+}
+
+.contact-section .form-section .input-text {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 15px;
+    background: transparent;
+    outline: 0;
+    color: #717171;
+    height: 50px;
+    border-radius: 3px;
+    border: 1px solid #dbdbdb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .06);
+}
+
+.contact-section .form-section .form-box i {
+    position: absolute;
+    top: 11px;
+    left: 20px;
+    color: #717171;
+    font-size: 19px;
+}
+
+.contact-section .form-section .checkbox .terms{
+    margin-left: 3px;
+}
+
+.contact-section .form-section .btn-md {
+    cursor: pointer;
+    padding: 14.5px 50px 13.5px 50px;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 3px;
+}
+
+.contact-section .form-section input[type=checkbox], input[type=radio] {
+    margin-right: 3px;
+}
+
+.contact-section .form-section button:focus {
+    outline: none;
+    outline: 0 auto -webkit-focus-ring-color;
+}
+
+.contact-section .form-section .btn-theme.focus, .btn-theme:focus {
+    box-shadow: none;
+}
+
+.contact-section .form-section .btn-theme {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    color: #fff;
+}
+
+.contact-section .form-section .btn-theme:hover {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.2);
+}
+
+.contact-section .none-2{
+    display: none;
+}
+
+.contact-section .logo{
+    top: 40px;
+    position: absolute;
+    left: 65px;
+}
+
+.contact-section .form-section .terms{
+    margin-left: 3px;
+}
+
+.contact-section .form-section .checkbox {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.contact-section .form-section .form-check{
+    float: left;
+    margin-bottom: 0;
+}
+
+.contact-section .form-section .form-check a {
+    color: #616161;
+    float: right;
+}
+
+.contact-section .form-section .form-check-input {
+    position: absolute;
+    margin-left: 0;
+}
+
+.contact-section .form-section .form-check label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 2px;
+    margin-left: -25px;
+    border: 1px solid #c5c3c3;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.contact-section .form-section .form-check-label {
+    padding-left: 25px;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #616161;
+}
+
+.contact-section .form-section .checkbox-theme input[type="checkbox"]:checked + label::before {
+    background-color: #00a875;
+    border-color: #00a875;
+}
+
+.contact-section .form-section input[type=checkbox]:checked + label:before {
+    font-weight: 300;
+    color: #f3f3f3;
+    line-height: 15px;
+    font-size: 14px;
+    content: "\2713";
+}
+
+.contact-section .form-section input[type=checkbox], input[type=radio] {
+    margin-top: 4px;
+}
+
+.contact-section .form-section a.forgot-password {
+    font-size: 15px;
+    float: right;
+    line-height: 50px;
+}
+
+/** Social media **/
+.contact-section .facebook-bg {
+    background: #4867aa;
+    color: #fff;
+}
+
+.contact-section .twitter-bg {
+    background: #33CCFF;
+    color: #fff;
+}
+
+.contact-section .google-bg {
+    background: #db4437;
+    color: #fff;
+}
+
+.contact-section .google-i {
+    background: #c3291c;
+}
+
+.contact-section .facebook-i {
+    background: #3b589e;
+}
+
+.contact-section .twitter-i {
+    background: #0cace0;
+}
+
+@media (max-width: 500px) {
+    .contact-section .form-section .social-list li a i {
+        display: none;
+    }
+
+    .contact-section .form-section .social-list li a {
+        width: 100px;
+    }
+}
+/** Login 2 end **/
+
+/** Sidebar widget start **/
+.sidebar-right {
+    margin: 0 0 30px 0;
+    background: #fff;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-left {
+    margin: 0 0 30px 0;
+    background: #fff;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+}
+
+.widget {
+    padding: 30px 20px;
+    border-bottom: solid 1px #efefef;
+}
+
+.widget-2 {
+    margin-bottom: 40px;
+    padding: 30px 20px;
+}
+
+.widget-2 .m-border{
+    margin-bottom: 20px;
+}
+
+.widget-3 {
+    border-bottom: none;
+}
+
+.single-block {
+    margin-bottom: 30px;
+}
+
+.sidebar-title {
+    font-size: 22px;
+    position: relative;
+    margin: 0 0 25px;
+    font-weight: 400;
+    color: #212121;
+}
+
+.sidebar .search-box {
+    padding: 20px 20px 0 20px;
+    margin-bottom: 0;
+}
+
+.form-search {
+    position: relative;
+}
+
+.form-search .form-control {
+    box-shadow: none;
+    border: 1px solid #F7F7F7;
+    background: #F7F7F7;
+    border-radius: 3px;
+    height: 45px;
+}
+
+.form-search .btn {
+    background: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 12px 9px 13px;
+}
+
+.form-search .btn:active,
+.form-search .btn:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.form-search .btn i {
+    color: #777;
+}
+
+.form-search .form-group, .form-search .form-control {
+    width: 100%;
+}
+
+.range-slider {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.range-slider .ui-slider {
+    position: relative;
+    text-align: left;
+}
+
+.range-slider label {
+    font-size: 14px;
+    color: #535353;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.range-slider .ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 14px;
+    height: 14px;
+    border-radius: 0;
+    border: 2px solid #66676b;
+    cursor: w-resize;
+    outline: none;
+    top: -5px;
+    margin-left: -8px;
+    box-shadow: none !important;
+}
+
+.range-slider .ui-slider .ui-slider-range {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    border: 0;
+    background-position: 0 0;
+}
+
+.range-slider .ui-slider .ui-slider-handle {
+}
+
+.range-slider .ui-widget-content {
+    background-color: #ccc;
+}
+
+.range-slider .ui-widget-header {
+}
+
+.range-slider .ui-slider.ui-state-disabled .ui-slider-handle, .range-slider .ui-slider.ui-state-disabled .ui-slider-range {
+    filter: inherit;
+}
+
+.range-slider .ui-slider-horizontal {
+    height: 4px;
+    border-radius: 10px;
+    width: calc(100% - 16px);
+    margin-left: 8px;
+}
+
+.range-slider .ui-slider-horizontal .ui-slider-range {
+    top: 0;
+    height: 100%;
+}
+
+.range-slider .ui-slider-horizontal .ui-slider-range-min {
+    left: 0;
+}
+
+.range-slider .ui-slider-horizontal .ui-slider-range-max {
+    right: 0;
+}
+
+.min-value:focus, .max-value:focus, .min-value, .max-value {
+    width: 40%;
+    display: inline-block;
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    margin: 12px 0 0 0;
+    cursor: default;
+}
+
+.min-value {
+    float: left;
+    margin-left: -8px;
+    width: 40%;
+    margin-right: -8px;
+    font-size: 13px;
+    color: #535353;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.max-value {
+    float: right;
+    width: 60%;
+    text-align: right;
+    margin-right: -8px;
+    font-size: 13px;
+    color: #535353;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.sidebar .recent-posts-box .detail header {
+    padding-bottom: 0;
+}
+
+.search-box-3{
+    padding: 30px 0 10px;
+    background: #fff;
+    background: #fff;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+}
+
+.search-box-3 .button-theme{
+    color: #fff;
+    font-weight: 600;
+}
+
+.search-box-3 i{
+    margin-right: 3px;
+}
+
+.search-box-3 .form-group {
+    margin-bottom: 20px;
+}
+
+.search-box-3 .range-slider {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.sb-6{
+    display: none;
+}
+
+.white-btn{
+    background: #24272b;
+    color: #fff;
+    font-size: 14px;
+}
+
+.text-l{
+    text-align: left!important;
+}
+
+.text-r{
+    text-align: right!important;
+}
+
+.search-box-4{
+    position: absolute;
+    padding: 25px 25px 10px;
+    max-width: 400px!important;
+    width: 100%;
+    top: 25%;
+    right: 10%;
+    z-index: 1;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.search-box-4 .search-fields {
+    min-height: 40px;
+    padding: 0;
+    border-radius: 3px;
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+}
+
+.search-box-4  .btn-md {
+    padding: 12px 30px 12px 30px;
+}
+
+      }
+    </style>
+
 </head>
 
 
