@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-
+{% block title %} | Home {% endblock %}
 {% block content %}
 {% load humanize %}
 {% load static %}
@@ -10,7 +10,7 @@
     <div class="swiper-wrapper">
 
       {% for intro in intro_assets %}
-    <div class="swiper-slide carousel-item-a intro-item bg-image" style="min-height:400px;min-width:200px;background-image: url({{intro.asset_photo.url}})">
+    <div class="swiper-slide carousel-item-a intro-item bg-image " style="min-height:400px;min-width:200px;background-image: url({{intro.asset_photo.url}})">
         <div class="overlay overlay-a"></div>
 
         <div class="intro-content display-table">
@@ -22,8 +22,8 @@
                     <p class="intro-title-top"><h4 class="color-b">{{intro.city}}, {{intro.state}}</h4>
                     </p>
                     <h1 class="intro-title mb-4 ">
-                      <a href="{% url 'asset_details' intro.id %}"><span class="color-b">{{intro.asset_id}}, <a/></span>
-                      <a href="{% url 'asset_details' intro.id %}"><br><span class="color-b">{{intro.asset_title}}</a></span>
+                      <a style="text-decoration:none;" href="{% url 'asset_details' intro.id %}"><span class="color-b">{{intro.asset_id}}, <a/></span>
+                      <a style="text-decoration:none;" href="{% url 'asset_details' intro.id %}"><br><span class="color-b">{{intro.asset_title}}</a></span>
                     </h1>
                     <p class="intro-subtitle intro-price">
                       <a href="{% url 'asset_details' intro.id %}"><span class="price-a">$ {{intro.price | intcomma}}</span></a>

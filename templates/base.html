@@ -7,13 +7,14 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>EstateAgency Bootstrap Template - Index</title>
+  <title>HomeHub {% block title %}  {% endblock %}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
+
   <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon"> -->
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
@@ -26,101 +27,37 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
-  <!-- =======================================================
-  * Template Name: EstateAgency
-  * Updated: May 30 2023 with Bootstrap v5.3.0
-  * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  <!-- <style>
-  /** Top header start **/
-  .top-header{
-  font-family: 'Roboto', sans-serif;
-  display: inline-block;
-  width: 100%;
+    <!-- =======================================================
+    * Template Name: EstateAgency
+    * Updated: May 30 2023 with Bootstrap v5.3.0
+    * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+
+
+<style>
+        .contact-section {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
   }
-
-  .top-header.bg-active{
-  background: #222e56;
-  }
-
-  .top-header .list-inline {
-  padding: 13px 0;
-  }
-
-  .list-inline a {
-  color: #2eca6;
-  margin-right: 15px;
-  font-size: 14px;
-  font-weight: 400;
-  opacity: 0.9;
-  }
-
-  .top-header .list-inline a:last-child{
-  margin-right: 0;
-  }
-
-  .list-inline a i {
-  margin-right: 5px;
-  }
-
-  .top-header ul li {
-  padding: 0 7px;
-  height: 50px;
-  display: inline-block;
-  text-align: center;
-  line-height: 44px;
-  color: #aaa;
-  font-size: 15px;
-  }
-
-  .top-header ul li:last-child{
-  padding-right: 0;
-  }
-
-  .top-header .sign-in, .top-header .sign-in:hover {
-  line-height: 36px;
-  color: #ececec;
-  font-size: 13px;
-  background: #2c3b6d;
-  padding: 4px 10px;
-  border-radius: 3px;
-  text-transform: uppercase;
-  }
-
-  .top-header ul li a {
-  color: #fff;
-  }
-
-  .top-header .sign-in, .top-header .sign-in:hover
-
-
-  .th-2 .sign-in, .top-header .sign-in:hover {
-  line-height: 50px;
-  color: #fff !important;
-  font-size: 13px;
-  background: #2c3b6d;
-  padding: 4px 10px;
-  border-radius: 3px;
-  text-transform: uppercase;
-  background: #2eca6a;
-  -webkit-box-shadow: 0px 0px 0px 2px rgba(255,255,255,0.2);
-  box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.2);
-  }
-
-      </style> -->
-      <style>
-      .contact-section {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-}
 
 .contact-section .bg-img {
 
@@ -131,7 +68,7 @@
     opacity: 1;
     width: 100%;
     z-index: 999;
-    min-height: 496px;
+    min-height: 100%;
     position: relative;
     display: flex;
     justify-content: center;

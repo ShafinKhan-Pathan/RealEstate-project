@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %} | Dashboard {% endblock %}
+
+{% block content %}
+{% load humanize %}
+<!-- ======= Intro Single ======= -->
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        {% include 'includes/messages.html' %}
+        <div class="title-single-box">
+          <h1 class="title-single">Welcome <span class="color-b">User</span></h1>
+          <span class="color-text-a">Assets that you have inquired about</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Username
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ======= Property Grid ======= -->
+
+<!--   Dashboard Start   -->
+
+<div class="container mt-50 mb-50">
+
+	<table class="table table-hover">
+	  <thead>
+		<tr>
+		  <th scope="col">#</th>
+		  <th scope="col">Car Name</th>
+		  <th scope="col">Location</th>
+		  <th scope="col">Price</th>
+		  <th scope="col">Action</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <th scope="row">1</th>
+		  <td>Lamborgini Huracan</td>
+		  <td>Austin</td>
+		  <td>$25000</td>
+		  <td><a href="#" class="btn btn-outline-dark">View Car</a></td>
+		</tr>
+		<tr>
+		  <th scope="row">2</th>
+		  <td>Lamborgini Huracan</td>
+		  <td>Austin</td>
+		  <td>$25000</td>
+		  <td><a href="#" class="btn btn-outline-dark">View Car</a></td>
+		</tr>
+		<tr>
+		  <th scope="row">3</th>
+		  <td>Lamborgini Huracan</td>
+		  <td>Austin</td>
+		  <td>$25000</td>
+		  <td><a href="#" class="btn btn-outline-dark">View Car</a></td>
+		</tr>
+	  </tbody>
+	</table>
+</div>
+{% endblock %}

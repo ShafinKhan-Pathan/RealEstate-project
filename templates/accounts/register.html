@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+
+{% block title %} | Register {% endblock %}
+
+{% block content %}
+
+
+    <!-- ======= Contact Single ======= -->
+    <div class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-section">
+                        <div class="logo-2">
+                              <a class="navbar-brand text-brand" href="{% url 'home' %}">Home<span class="color-b">Hub</span></a>
+                        </div>
+                        <h3>Start your journey</h3>
+                        {% include 'includes/messages.html' %}
+
+                        <form action="{% url 'register' %}" method="POST" onsubmit="return validation()">
+                          {% csrf_token %}
+                          <div class="form-group form-box">
+                          <input type="text" name="firstname" id="firstname" class="input-text" placeholder="First Name" autocomplete="off">
+                          <span id="fname" class="text-danger font-weight-bold"></span>
+                          <i class="fa fa-user"></i>
+                          </div>
+                      <div class="form-group form-box">
+                          <input type="text" name="lastname" id="lastname" class="input-text" placeholder="Last Name" autocomplete="off">
+                          <span id="lname" class="text-danger font-weight-bold"></span>
+                          <i class="fa fa-user"></i>
+                      </div>
+                      <div class="form-group form-box">
+                          <input type="text" name="username" id="username" class="input-text" placeholder="Username" autocomplete="off">
+                          <span id="uname" class="text-danger font-weight-bold"></span>
+                          <i class="fa fa-user"></i>
+                      </div>
+                      <div class="form-group form-box">
+                          <input type="text" name="email" id="email" class="input-text" placeholder="Email Address" autocomplete="off">
+                          <span id="mail" class="text-danger font-weight-bold"></span>
+                          <i class="flaticon-mail"></i>
+                      </div>
+                      <div class="form-group form-box">
+                          <input type="password" name="password" id="password" class="input-text" placeholder="Password" autocomplete="off">
+                          <span id="pass" class="text-danger font-weight-bold"></span>
+                          <i class="flaticon-lock"></i>
+                      </div>
+                      <div class="form-group form-box">
+                          <input type="password" name="confirm_password" id="confirm_password" class="input-text" placeholder="Confirm Password" autocomplete="off">
+                          <span id="cpass" class="text-danger font-weight-bold"></span>
+                          <i class="flaticon-lock"></i>
+                      </div>
+                      <div class="form-group mb-0 clearfix">
+                        <a href="{% url 'register' %}"><button type="submit" name="submit" value="submit" class="btn btn-a navbar-toggle-box navbar-toggle-box-collapse">Register</button></a>
+                      </div>
+                            <div class="extra-login clearfix">
+                                <span>Or Login With</span>
+                            </div>
+                            <div class="clearfix"></div>
+                            <ul class="social-list">
+                                <li><a href="#" class="facebook-bg"><i class="fa fa-facebook facebook-i">f</i><span>Facebook</span></a></li>
+                                <li><a href="#" class="google-bg"><i class="fa fa-google google-i">G</i><span>Google</span></a></li>
+                            </ul>
+                        </form>
+                        <p>Already registered? <a href="{% url 'login' %}" class="thembo"> Log in to proceed.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+      function validation(){
+          var firstname = document.getElementById('firstname').value;
+          var lastname = document.getElementById('lastname').value;
+          var username = document.getElementById('username').value;
+          var email = document.getElementById('email').value;
+          var password = document.getElementById('password').value;
+          var confirm_password = document.getElementById('confirm_password').value;
+          var specialChars = /[!@#$%^&*(),.?":{}|<>]/;
+
+
+          document.getElementById('fname').innerHTML = "";
+          document.getElementById('lname').innerHTML = "";
+          document.getElementById('uname').innerHTML = "";
+          document.getElementById('mail').innerHTML = "";
+          document.getElementById('pass').innerHTML = "";
+          document.getElementById('cpass').innerHTML = "";
+
+
+          if(firstname == ""){
+            document.getElementById('fname').innerHTML = "Please Enter Your Firstname";
+            return false;
+        }
+          if((firstname.length<=2) || (firstname.length>20)){
+            document.getElementById('fname').innerHTML = "Firstname Should be between 2 and 20";
+            return false;
+          }
+          if(!isNaN(firstname)){
+            document.getElementById('fname').innerHTML = "Number Are not allowed";
+            return false;
+          }
+          if(lastname.trim() === ""){
+            document.getElementById('lname').innerHTML = "Please Enter Your Lastname";
+            return false;
+          }
+          if((lastname.length<=2) || (lastname.length>20)){
+            document.getElementById('lname').innerHTML = "Lastname Must be between 2 and 20";
+            return false;
+          }
+          if(!isNaN(lastname)){
+            document.getElementById('lname').innerHTML = "Please Enter Characters Number Are not allowed";
+            return false;
+          }
+          if(username.trim() === ""){
+            document.getElementById('uname').innerHTML = "Please Enter Your Username";
+            return false;
+          }
+          if((username.length<=2) || (username.length>20)){
+            document.getElementById('uname').innerHTML = "Username Must be between 2 and 20";
+            return false;
+          }
+          if(!isNaN(username)){
+            document.getElementById('uname').innerHTML = "Enter Characters";
+            return false;
+          }
+          if(email.trim() === ""){
+            document.getElementById('mail').innerHTML = "Please Enter Your Email";
+            return false;
+          }
+          if(email.indexOf('@') <=0 ){
+            document.getElementById('mail').innerHTML = "Invalid @ Position";
+            return false;
+          }
+          if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3) !='.')){
+            document.getElementById('mail').innerHTML = "Invalid Email Syntax (.com OR .in)";
+            return false;
+          }
+          if(password.trim() === ""){
+            document.getElementById('pass').innerHTML = "Please Enter Your Password";
+            return false;
+          }
+          if((password.length<=5) || (password.length>20)){
+            document.getElementById('pass').innerHTML = "Password Must be between 5 and 20";
+            return false;
+          }
+          if (!specialChars.test(password)) {
+            document.getElementById('pass').innerHTML = "Password must contain at least one special character";
+            return false;
+          }
+          if(password!=confirm_password){
+            document.getElementById('cpass').innerHTML = "Confirm Password is not matching ";
+            return false;
+          }
+          if(confirm_password.trim() === ""){
+            document.getElementById('cpass').innerHTML = "Please Enter Your confirm_password";
+            return false;
+          }
+          if((confirm_password.length<=5) || (confirm_password.length>20)){
+            document.getElementById('cpass').innerHTML = "Confirm Password Must be between 5 and 20";
+            return false;
+          }
+          if (!specialChars.test(confirm_password)) {
+            document.getElementById('cpass').innerHTML = "Confirm Password must contain at least one special character";
+            return false;
+          }
+
+      }
+
+    </script>
+
+{% endblock %}

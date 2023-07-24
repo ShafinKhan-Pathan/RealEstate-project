@@ -108,58 +108,6 @@
     </div>
   </div><!-- End Property Search Section -->
 
-<!-- ======= Header/Navbar ======= -->
-<!-- Top header start -->
-<!-- <header class="top-header th-2 top-header-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-7">
-                <div class="list-inline">
-                    <a href="tel:+55-4XX-634-7071"><i class="fa fa-phone"></i>+55-4XX-634-7071</a>
-                    <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>info@themevessel.com</a>
-                    <a href="tel:info@themevessel.com"><i class="fa fa-clock-o"></i>Mon - Sun: 8:00am - 6:00pm</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-5">
-                <ul class="top-social-media pull-right">
-                    <li>
-                        <a href="login.html" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
-                    </li>
-                    <li>
-                        <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header> -->
-<!-- ======= Header/Navbar ======= -->
-<!-- Top header start -->
-<!-- <header class="top-header th-2 top-header-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-7">
-                <div class="list-inline">
-                    <a href="tel:+55-4XX-634-7071"><i class="fa fa-phone"></i>+55-4XX-634-7071</a>
-                    <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>info@themevessel.com</a>
-                    <a href="tel:info@themevessel.com"><i class="fa fa-clock-o"></i>Mon - Sun: 8:00am - 6:00pm</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-5">
-                <ul class="top-social-media pull-right">
-                    <li>
-                        <a href="login.html" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
-                    </li>
-                    <li>
-                        <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header> -->
-<!-- Top header end -->
-<!-- End Top header -->
 
 
 <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
@@ -254,14 +202,26 @@
 
     <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
       <ul class="navbar-nav">
+        {% if user.is_authenticated %}
         <li class="nav-item">
-          <a href="{% url 'login' %}"><button type="submit" class="btn btn-a navbar-toggle-box navbar-toggle-box-collapse">Login</button></a>
+          <a href="{% url 'dashboard' %}"><button type="submit" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse">Dashboard</button></a>
         </li>
         <li class="nav-item">
-          <a href="{% url 'register' %}"<button type="submit" class="btn btn-a navbar-toggle-box navbar-toggle-box-collapse">Register</button></a>
+          <a href="javascript:{document.getElementById('logout').submit()}"><button type="submit" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse">Logout</button></a>
+          <form action="{% url 'logout' %}" id="logout" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="" value="">
+          </form>
+        </li>
+        {% else %}
 
-          <!-- <a class="navbar-brand " href="{% url 'home' %}"><span>Register</span></a> -->
+        <li class="nav-item">
+          <a href="{% url 'login' %}"><button type="submit" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse">Login</button></a>
         </li>
+        <li class="nav-item">
+          <a href="{% url 'register' %}"<button type="submit" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse">Register</button></a>
+        </li>
+        {% endif %}
         </ul>
       </div>
 

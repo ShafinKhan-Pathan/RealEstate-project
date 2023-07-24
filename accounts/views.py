@@ -1,61 +1,12 @@
-from django.shortcuts import render
-from .models import Team
+from django.shortcuts import render,redirect
 from assets.models import Asset
+from django.contrib import messages,auth
+from django.contrib.auth.models import User
+
 
 # Create your views here.
+def login(request):
 
-def home(request):
-    teams = Team.objects.all()
-    featured_assets = Asset.objects.order_by('-created_date').filter(is_featured=True)
-    all_assets = Asset.objects.order_by('created_date')
-    intro_assets = Asset.objects.all()
-    # order_by('-created_date').filter(is_featured=True)
-    #search_fields = Asset.objects.values('type','city','bed','garage','bath','price')
-    type_search = Asset.objects.values_list('type', flat=True).distinct()
-    city_search = Asset.objects.values_list('city', flat=True).distinct()
-    bed_search = Asset.objects.values_list('bed', flat=True).distinct()
-    garage_search = Asset.objects.values_list('garage', flat=True).distinct()
-    bath_search = Asset.objects.values_list('bath', flat=True).distinct()
-    price_search = Asset.objects.values_list('price', flat=True).distinct()
-    year_search = Asset.objects.values_list('year', flat=True).distinct().order_by('-year')
-    data = {
-        'teams': teams,
-        'featured_assets':featured_assets,
-        'all_assets':all_assets,
-        'intro_assets':intro_assets,
-        'type_search':type_search,
-        'city_search':city_search,
-        'bed_search':bed_search,
-        'garage_search':garage_search,
-        'bath_search':bath_search,
-        'price_search':price_search,
-        'year_search':year_search,
-
-    }
-    return render(request,'pages/home.html',data)
-
-def about(request):
-    teams = Team.objects.all()
-    type_search = Asset.objects.values_list('type', flat=True).distinct()
-    city_search = Asset.objects.values_list('city', flat=True).distinct()
-    bed_search = Asset.objects.values_list('bed', flat=True).distinct()
-    garage_search = Asset.objects.values_list('garage', flat=True).distinct()
-    bath_search = Asset.objects.values_list('bath', flat=True).distinct()
-    price_search = Asset.objects.values_list('price', flat=True).distinct()
-    year_search = Asset.objects.values_list('year', flat=True).distinct().order_by('-year')
-    data = {
-        'teams':teams,
-        'type_search':type_search,
-        'city_search':city_search,
-        'bed_search':bed_search,
-        'garage_search':garage_search,
-        'bath_search':bath_search,
-        'price_search':price_search,
-        'year_search':year_search,
-    }
-    return render(request,'pages/about.html',data)
-
-def contact(request):
     type_search = Asset.objects.values_list('type', flat=True).distinct()
     city_search = Asset.objects.values_list('city', flat=True).distinct()
     bed_search = Asset.objects.values_list('bed', flat=True).distinct()
@@ -72,9 +23,20 @@ def contact(request):
         'price_search':price_search,
         'year_search':year_search,
     }
-    return render(request,'pages/contact.html',data)
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
 
-def services(request):
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request,user)
+            messages.success(request,'You are now logged in !')
+            return redirect('dashboard')
+        else:
+            messages.error(request,'Invalid Login Credentials')
+
+    return render(request,'accounts/login.html',data)
+def register(request):
     type_search = Asset.objects.values_list('type', flat=True).distinct()
     city_search = Asset.objects.values_list('city', flat=True).distinct()
     bed_search = Asset.objects.values_list('bed', flat=True).distinct()
@@ -91,4 +53,60 @@ def services(request):
         'price_search':price_search,
         'year_search':year_search,
     }
-    return render(request,'pages/services.html',data)
+    if request.method == 'POST':
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+
+        if password == confirm_password:
+            if User.objects.filter(username=username).exists():
+                messages.error(request,'Username Alreadt Exists !')
+                return redirect('register')
+            else:
+                if User.objects.filter(email=email).exists():
+                    messages.error(request,'Email Already Exists !')
+                    return redirect('register')
+                else:
+                    user = User.objects.create_user(first_name=firstname, last_name=lastname, username=username, email=email, password=password)
+                    auth.login(request,user)
+                    messages.success(request,'You are not logged in !')
+                    return redirect('dashboard')
+                    user.save()
+                    messages.success(request,'You Are Successfully Registered')
+                    return redirect('login')
+
+        else:
+            return redirect('register')
+    else:
+        return render(request,'accounts/register.html',data)
+
+
+
+def logout(request):
+    if request.method == 'POST':
+        auth.logout(request)
+        messages.success(request,'You are logged out')
+        return redirect('home')
+
+    return redirect('home')
+def dashboard(request):
+    type_search = Asset.objects.values_list('type', flat=True).distinct()
+    city_search = Asset.objects.values_list('city', flat=True).distinct()
+    bed_search = Asset.objects.values_list('bed', flat=True).distinct()
+    garage_search = Asset.objects.values_list('garage', flat=True).distinct()
+    bath_search = Asset.objects.values_list('bath', flat=True).distinct()
+    price_search = Asset.objects.values_list('price', flat=True).distinct()
+    year_search = Asset.objects.values_list('year', flat=True).distinct().order_by('-year')
+    data = {
+        'type_search':type_search,
+        'city_search':city_search,
+        'bed_search':bed_search,
+        'garage_search':garage_search,
+        'bath_search':bath_search,
+        'price_search':price_search,
+        'year_search':year_search,
+    }
+    return render(request,'accounts/dashboard.html',data)
