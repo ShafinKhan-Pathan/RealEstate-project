@@ -38,8 +38,22 @@ def assets(request):
 
 def asset_details(request,id):
     single_asset = get_object_or_404(Asset, pk=id)
+    type_search = Asset.objects.values_list('type', flat=True).distinct()
+    city_search = Asset.objects.values_list('city', flat=True).distinct()
+    bed_search = Asset.objects.values_list('bed', flat=True).distinct()
+    garage_search = Asset.objects.values_list('garage', flat=True).distinct()
+    bath_search = Asset.objects.values_list('bath', flat=True).distinct()
+    price_search = Asset.objects.values_list('price', flat=True).distinct()
+    year_search = Asset.objects.values_list('year', flat=True).distinct().order_by('-year')
     data = {
         'single_asset':single_asset,
+        'type_search':type_search,
+        'city_search':city_search,
+        'bed_search':bed_search,
+        'garage_search':garage_search,
+        'bath_search':bath_search,
+        'price_search':price_search,
+        'year_search':year_search,
     }
     return render(request,'assets/asset_details.html',data)
 

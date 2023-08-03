@@ -45,7 +45,9 @@
           <div class="col-sm-12 section-t8">
             <div class="row">
               <div class="col-md-7">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form action="{% url 'contact' %}" method="POST" role="form" class="php-email-form">
+                  {% include 'includes/messages.html' %}
+                  {% csrf_token %}
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <div class="form-group">

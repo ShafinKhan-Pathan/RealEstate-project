@@ -112,7 +112,7 @@ class Asset(models.Model):
         return self.asset_title
 
     asset_title = models.CharField(max_length=200)
-    asset_id = models.CharField(max_length=200)
+    asset_id = models.IntegerField()
     state = models.CharField(choices=state_choices,max_length=100)
     city = models.CharField(max_length=200)
     price = models.IntegerField()

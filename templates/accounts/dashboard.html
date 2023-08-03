@@ -10,7 +10,7 @@
       <div class="col-md-12 col-lg-8">
         {% include 'includes/messages.html' %}
         <div class="title-single-box">
-          <h1 class="title-single">Welcome <span class="color-b">User</span></h1>
+          <h1 class="title-single">Welcome <span class="color-b">{{user.first_name}}</span></h1>
           <span class="color-text-a">Assets that you have inquired about</span>
         </div>
       </div>
@@ -21,7 +21,7 @@
               <a href="{% url 'home' %}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-              Username
+              {{user.first_name}}
             </li>
           </ol>
         </nav>
@@ -32,42 +32,41 @@
 <!-- ======= Property Grid ======= -->
 
 <!--   Dashboard Start   -->
+{% if inquiries %}
 
 <div class="container mt-50 mb-50">
 
 	<table class="table table-hover">
 	  <thead>
 		<tr>
-		  <th scope="col">#</th>
-		  <th scope="col">Car Name</th>
+		  <th scope="col">No.</th>
+		  <th scope="col">Asset Name</th>
 		  <th scope="col">Location</th>
-		  <th scope="col">Price</th>
+		  <th scope="col">Email</th>
 		  <th scope="col">Action</th>
 		</tr>
 	  </thead>
 	  <tbody>
-		<tr>
+      {% for inquiry in inquiries %}
+    <tr>
 		  <th scope="row">1</th>
-		  <td>Lamborgini Huracan</td>
-		  <td>Austin</td>
-		  <td>$25000</td>
-		  <td><a href="#" class="btn btn-outline-dark">View Car</a></td>
+		  <td>{{inquiry.asset_title}}</td>
+		  <td>{{inquiry.city}}</td>
+		  <td>{{inquiry.email}}</td>
+		  <td><a href="{% url 'asset_details' inquiry.asset_id %}" class="btn btn-outline-dark">View House</a></td>
 		</tr>
-		<tr>
-		  <th scope="row">2</th>
-		  <td>Lamborgini Huracan</td>
-		  <td>Austin</td>
-		  <td>$25000</td>
-		  <td><a href="#" class="btn btn-outline-dark">View Car</a></td>
-		</tr>
-		<tr>
-		  <th scope="row">3</th>
-		  <td>Lamborgini Huracan</td>
-		  <td>Austin</td>
-		  <td>$25000</td>
-		  <td><a href="#" class="btn btn-outline-dark">View Car</a></td>
-		</tr>
+    {% endfor %}
 	  </tbody>
 	</table>
 </div>
+{% else %}
+<div class="container mt-50 mb-50">
+
+  <h1 style="color:red;">You have no inquiries </h1>
+
+</div>
+{% endif %}
+
+
+
 {% endblock %}

@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from assets.models import Asset
 from django.contrib import messages,auth
 from django.contrib.auth.models import User
+from contacts.models import Contact
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -92,7 +94,12 @@ def logout(request):
         return redirect('home')
 
     return redirect('home')
+
+
+
+@login_required(login_url = 'login')
 def dashboard(request):
+    user_inquiry = Contact.objects.order_by('-created_date').filter(user_id=request.user.id)
     type_search = Asset.objects.values_list('type', flat=True).distinct()
     city_search = Asset.objects.values_list('city', flat=True).distinct()
     bed_search = Asset.objects.values_list('bed', flat=True).distinct()
@@ -108,5 +115,6 @@ def dashboard(request):
         'bath_search':bath_search,
         'price_search':price_search,
         'year_search':year_search,
+        'inquiries':user_inquiry,
     }
     return render(request,'accounts/dashboard.html',data)

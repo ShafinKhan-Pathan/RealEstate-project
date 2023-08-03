@@ -12,6 +12,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-lg-8">
+            {% include 'includes/messages.html' %}
+
             <div class="title-single-box">
               <h1 class="title-single">{{single_asset.asset_id}} {{single_asset.asset_title}}</h1>
               <span class="color-text-a">{{single_asset.city}}, {{single_asset.state}}</span>
@@ -37,6 +39,7 @@
     </section><!-- End Intro Single-->
 <!-- ======= Property Single ======= -->
 <section class="property-single nav-arrow-b">
+
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8">
@@ -148,11 +151,7 @@
               <p>
                 {{single_asset.description | safe}}
               </p>
-              <!-- <p class="description color-text-a no-margin">
-                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget
-                malesuada. Quisque velit nisi,
-                pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
-              </p> -->
+
             </div>
             <div class="row section-t3">
               <div class="col-sm-12">
@@ -161,13 +160,13 @@
                 </div>
               </div>
             </div>
+
             <div class="amenities-list color-text-a">
               <ul class="list-a no-margin">
-              <li>
                 {{single_asset.amenities}}
-              </li>
               </ul>
             </div>
+
           </div>
         </div>
       </div>
@@ -176,32 +175,107 @@
         <div class="row section-t3">
           <div class="col-sm-12">
             <div class="title-box-d">
-              <h3 class="title-d">Contact Agent</h3>
+              <h3 class="title-d">For More Inquiries :</h3>
             </div>
           </div>
         </div>
         <div class="row justify-content-center">
-  <div class="col-md-12 col-lg-8">
     <div class="property-contact">
-      <form class="form-a">
+      <form action="{% url 'inquiry' %}" method="POST" class="form-a">
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+          <input type="hidden" name="user_id" value="{{user.id}}">
+        {% else %}
+          <input type="hidden" name="user_id" value="0">
+        {% endif %}
+          <input type="hidden" name="asset_id" value="{{single_asset.id}}">
         <div class="row">
-          <div class="col-md-12 mb-3">
+          <div class="col-md-12">
+            <label for="name" class="col-form-label">Hello, My Name is</label>
             <div class="form-group">
-              <input type="text" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
+              <div class="row" >
+                <div class="col">
+              <input type="text" class="form-control " name="first_name" id="firstname" placeholder="Firstname *"
+              {% if user.is_authenticated %}
+                value="{{user.first_name}}"
+              {% endif %}
+               required>
+              </div>
+              <div class="col">
+              <input type="text" class="form-control" name="last_name" id="lastname" placeholder="Lastname *"
+              {% if user.is_authenticated %}
+                value="{{user.last_name}}"
+              {% endif %}
+               required>
+            </div>
             </div>
           </div>
-          <div class="col-md-12 mb-3">
+          </div>
+          <div class="col-md-12">
+          <div class="form-group">
+          </div>
+          </div>
+          <div class="col-md-12">
             <div class="form-group">
-              <input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
+              <div class="row">
+                <div class="col">
+                  <select class="form-control form-select " id="interest" name="customer_need">
+                    <option selected="true" disabled="disabled">Home Type</option>
+                      <option value="I'm interested in this">I'm interested in this</option>
+                      <option value="I'd like to know your best price for this">I'd like to know your best price for this</option>
+                      <option value="I'd like to tour this">I'd like to tour this</option>
+                      <option value="I'd like a history report for this">I'd like a history report for this</option>
+                  </select>
+                </div>
+
+                <div class="col">
+                  <input type="text" name="asset_title" class="form-control" value="{{single_asset.asset_title}}" readonly>
+
+                </div>
+            </div>
+
+          </div>
+
+          </div>
+
+            <div class="col-md-12 ">
+          <div class="form-group">
+              <div class="row">
+                    <div class="col">
+                        <input type="text" name="city" class="form-control" placeholder="City" required>
+                        </div>
+                      <div class="col">
+                    <input type="text" name="state" class="form-control" placeholder="State" required>
+                    </div>
+                    </div>
+              </div>
+              </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <label style="color:red;" for="name" class="col-form-label">You can contact me via email at</label>
+                  <input type="email" name="email" class="form-control " id="inputEmail1" placeholder="Email Address *"
+                  {% if user.is_authenticated %}
+                    value="{{user.email}}"
+                  {% endif %}
+                  required>
+
+                </div>
+                <div class="col">
+                  <label for="name" style="color:red;" class="col-form-label">or via mobile no. at</label>
+                  <input type="text" name="phone" class="form-control " id="inputEmail1" placeholder="Mobile Number *" required>
+                  </div>
             </div>
           </div>
-          <div class="col-md-12 mb-3">
+          </div>
+          <div class="col-md-12">
             <div class="form-group">
-              <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
+              <textarea id="textMessage"  class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
             </div>
           </div>
-          <div class="col-md-12 mt-3">
-            <button type="submit" class="btn btn-a">Send Message</button>
+          <div class="col-md-12 mb-3" style="display:flex;justify-content: center;">
+            <button type="submit" value="Send" class="btn btn-a ">Send Message</button>
           </div>
         </div>
       </form>
@@ -209,34 +283,7 @@
   </div>
 </div>
 
-        <!-- <div class="row">
-          <div class="col-md-12 col-lg-4">
-            <div class="property-contact">
-              <form class="form-a">
-                <div class="row">
-                  <div class="col-md-12 mb-1">
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-1">
-                    <div class="form-group">
-                      <input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-1">
-                    <div class="form-group">
-                      <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mt-3">
-                    <button type="submit" class="btn btn-a">Send Message</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div> -->
+
       </div>
     </div>
   </div>
