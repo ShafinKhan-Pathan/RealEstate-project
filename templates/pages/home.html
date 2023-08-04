@@ -187,7 +187,7 @@
                 <h2 class="title-a">Best Agents</h2>
               </div>
               <div class="title-link">
-                <a href="agents-grid.html">All Agents
+                <a href="{% url 'allteam' %}">All Agents
                   <span class="bi bi-chevron-right"></span>
                 </a>
               </div>
@@ -202,14 +202,14 @@
           <div class="col-md-10">
             <div class="card-box-d">
               <div class="card-img-d">
-                <img src="{{team.photo.url}}" alt="" class="img-d img-fluid">
+                <img src="{{team.photo.url}}" href="{% url 'contact' %}" alt="" class="img-d img-fluid">
               </div>
               <div class="card-overlay card-overlay-hover">
                 <div class="card-header-d">
 
                   <div class="card-title-d align-self-center">
                     <h3 class="title-d">
-                      <a href="agent-single.html" class="link-two">{{team.firstname}}
+                      <a href="{% url 'contact' %}" class="link-two">{{team.firstname}}
                         <br> {{team.lastname}}</a>
                     </h3>
                   </div>

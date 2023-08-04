@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %} | Agents {% endblock %}
+
+{% block content %}
+{% load humanize %}
+<main id="main">
+
+    <!-- ======= Intro Single ======= -->
+    <!-- ======= Agents Section ======= -->
+    <section class="section-agents section-t8">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="title-wrap d-flex justify-content-between">
+              <div class="title-box">
+                <h2 class="title-a">Best Agents</h2>
+              </div>
+              <div class="title-link">
+                <a href="{% url 'allteam' %}">All Agents
+                  <span class="bi bi-chevron-right"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="news-carousel" class="swiper">
+          <div class="swiper-wrapper">
+            {% for team in teams %}
+            <div class="carousel-item-c swiper-slide">
+
+          <div class="col-md-10">
+            <div class="card-box-d">
+              <div class="card-img-d">
+                <img src="{{team.photo.url}}" href="{% url 'contact' %}" alt="" class="img-d img-fluid">
+              </div>
+              <div class="card-overlay card-overlay-hover">
+                <div class="card-header-d">
+
+                  <div class="card-title-d align-self-center">
+                    <h3 class="title-d">
+                      <a href="{% url 'contact' %}" class="link-two">{{team.firstname}}
+                        <br> {{team.lastname}}</a>
+                    </h3>
+                  </div>
+                </div>
+                <div class="card-body-d">
+                  <p class="content-d color-text-a">
+                    <strong>{{team.designation}}</strong>
+                  </p>
+                  <div class="info-agents color-a">
+                    <p>
+                      <strong>Phone: </strong> {{team.phone}}
+                    </p>
+                    <p>
+                      <strong>Email: </strong> {{team.email}}
+                    </p>
+                  </div>
+                </div>
+                <div class="card-footer-d">
+                  <div class="socials-footer d-flex justify-content-center">
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <a href="{{team.facebook}}" target="_blank" class="link-one">
+                          <i class="bi bi-facebook" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="{{team.twitter}}" target="_blank" class="link-one">
+                          <i class="bi bi-twitter" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="{{team.insta}}" target="_blank" class="link-one">
+                          <i class="bi bi-instagram" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="{{team.linkedin}}" target="_blank" class="link-one">
+                          <i class="bi bi-linkedin" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+    </section><!-- End Agents Section -->
+  </main><!-- End #main -->
+
+{% endblock %}

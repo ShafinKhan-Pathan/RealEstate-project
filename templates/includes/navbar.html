@@ -204,10 +204,10 @@
       <ul class="navbar-nav">
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a href="{% url 'dashboard' %}"><button type="submit" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse">Dashboard</button></a>
+          <a href="{% url 'dashboard' %}"><button type="submit" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse">Welcome {{user.username}}</button></a>
         </li>
         <li class="nav-item">
-          <a href="javascript:{document.getElementById('logout').submit()}"><button type="submit" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse">Logout</button></a>
+          <a href="javascript:{document.getElementById('logout').submit()}"><button type="submit"  class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse">Logout</button></a>
           <form action="{% url 'logout' %}" id="logout" method="POST">
             {% csrf_token %}
             <input type="hidden" name="" value="">
