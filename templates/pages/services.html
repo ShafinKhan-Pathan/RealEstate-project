@@ -4,20 +4,28 @@
 {% block title %} | Services {% endblock %}
 
 {% block content %}
+{% load static %}
+
 <!-- ======= Services Section ======= -->
 <section class="section-services section-t8">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="title-wrap d-flex justify-content-between">
-          <div class="title-box">
-            <h2 class="title-a">Our Services</h2>
+          <div class="title-single-box">
+            <h1 class="title-single">Our Service Portfolio</h1>
+            <span class="color-text-a">we take pride in offering a comprehensive range of services tailored to meet your every real estate need.</span>
           </div>
         </div>
       </div>
+    <!-- </div> -->
+    <div class="about-img-box">
+      <img src="{% static 'assets/img/service2.jpg' %}" style="height:320px; width:500px; margin:10px; "  alt="" class="img-fluid">
+      <img src="{% static 'assets/img/service1.jpg' %}" style="height:320px; width:500px;"  alt="" class="img-fluid">
+
     </div>
-    <div class="row">
-      <div class="col-md-4">
+    <!-- <div class="row"> -->
+      <div class="col-md-4 mt-4">
         <div class="card-box-c foo">
           <div class="card-header-c d-flex">
             <div class="card-box-ico">
@@ -29,76 +37,72 @@
           </div>
           <div class="card-body-c">
             <p class="content-c">
-              Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-              convallis a pellentesque
-              nec, egestas non nisi.
+              Experience the Best of HomeHub's Lifestyle Services. Elevate your living with our personalized offerings, from concierge assistance to curated experiences,
+              all designed to add luxury and convenience to your home. Embrace a life of comfort and fulfillment with HomeHub
             </p>
           </div>
           </div>
         </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 mt-4">
         <div class="card-box-c foo">
           <div class="card-header-c d-flex">
             <div class="card-box-ico">
-              <span class="bi bi-cart"></span>
+              <!-- <span class="bi bi-cart"></span> -->
             </div>
             <div class="card-title-c align-self-center">
-              <h2 class="title-c">Lifestyle</h2>
+              <h2 class="title-c">Lease</h2>
             </div>
           </div>
           <div class="card-body-c">
             <p class="content-c">
-              Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-              convallis a pellentesque
-              nec, egestas non nisi.
+              Explore our diverse rental listings and discover a range of properties that suit your lifestyle and budget. Let us assist you in finding
+              your ideal rental space and embark on a journey to a place you can truly call home.Your ideal living space awaits.
             </p>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 mt-4">
         <div class="card-box-c foo">
           <div class="card-header-c d-flex">
             <div class="card-box-ico">
-              <span class="bi bi-cart"></span>
+              <!-- <span class="bi bi-cart"></span> -->
             </div>
             <div class="card-title-c align-self-center">
-              <h2 class="title-c">Lifestyle</h2>
+              <h2 class="title-c">Consultancy</h2>
             </div>
           </div>
           <div class="card-body-c">
             <p class="content-c">
-              Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-              convallis a pellentesque
-              nec, egestas non nisi.
+              Our expert consultancy services are tailored to guide you through every aspect of your real estate journey. Whether you're a seasoned investor or a first-time buyer,
+               our experienced consultants are here to provide personalized advice and strategic insights.
             </p>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 mt-4">
         <div class="card-box-c foo">
           <div class="card-header-c d-flex">
             <div class="card-box-ico">
-              <span class="bi bi-cart"></span>
+              <!-- <span class="bi bi-cart"></span> -->
             </div>
             <div class="card-title-c align-self-center">
-              <h2 class="title-c">Lifestyle</h2>
+              <h2 class="title-c">24x7-Support</h2>
             </div>
           </div>
           <div class="card-body-c">
             <p class="content-c">
-              Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-              convallis a pellentesque
-              nec, egestas non nisi.
+              HomeHub: Always Available, Around the Clock. Our dedicated team is at your service 24x7, ensuring you have the support you need whenever you need it.
+              Whether you have questions, inquiries, or need assistance, we're here to help, day or night.
             </p>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 mt-4">
         <div class="card-box-c foo">
           <div class="card-header-c d-flex">
             <div class="card-box-ico">
-              <span class="bi bi-calendar4-week"></span>
+              <!-- <span class="bi bi-calendar4-week"></span> -->
             </div>
             <div class="card-title-c align-self-center">
               <h2 class="title-c">Loans</h2>
@@ -106,18 +110,17 @@
           </div>
           <div class="card-body-c">
             <p class="content-c">
-              Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Mauris blandit
-              aliquet elit, eget tincidunt
-              nibh pulvinar a.
+              Unlock Your Dreams with HomeHub Loans. We pride ourselves on providing the best rates and top-notch financial services to help you secure your dream home.
+              Experience a seamless borrowing journey with us, as we make your dream home a reality.
             </p>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 mt-4">
         <div class="card-box-c foo">
           <div class="card-header-c d-flex">
             <div class="card-box-ico">
-              <span class="bi bi-card-checklist"></span>
+              <!-- <span class="bi bi-card-checklist"></span> -->
             </div>
             <div class="card-title-c align-self-center">
               <h2 class="title-c">Sell</h2>
@@ -125,9 +128,8 @@
           </div>
           <div class="card-body-c">
             <p class="content-c">
-              Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-              convallis a pellentesque
-              nec, egestas non nisi.
+              Selling Made Easy with HomeHub. When it's time to sell your property, trust us to handle the process seamlessly. Our experienced team is dedicated to getting you the best value for your home and ensuring a
+              smooth and stress-free selling experience.
             </p>
           </div>
         </div>

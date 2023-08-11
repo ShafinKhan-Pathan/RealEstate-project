@@ -11,7 +11,7 @@ class AssetAdmin(admin.ModelAdmin):
 
     thumbnail.short_description = 'Photo'
 
-    list_display = ('id','thumbnail','asset_title','asset_id','state','city','price','area','condition','year','is_featured',)
+    list_display = ('id','thumbnail','asset_title','asset_id','state','city','price','area','condition','bath','year','is_featured',)
     list_display_links = ('thumbnail','asset_id','asset_title')
     search_fields = ('condition','city','year','asset_title')
     list_editable = ('is_featured',)

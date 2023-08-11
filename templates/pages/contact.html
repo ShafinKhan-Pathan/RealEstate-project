@@ -11,8 +11,9 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Contact US</h1>
-              <span class="color-text-a">Aut voluptas consequatur unde sed omnis ex placeat quis eos. Aut natus officia corrupti qui autem fugit consectetur quo. Et ipsum eveniet laboriosam voluptas beatae possimus qui ducimus. Et voluptatem deleniti. Voluptatum voluptatibus amet. Et esse sed omnis inventore hic culpa.</span>
+              <h1 class="title-single">Reach Out to Home<span class="color-b">Hub</span> for Inquiries and Support</h1>
+              <span class="color-text-a">Got questions or need assistance? We're here to help! Contact HomeHub for all inquiries and support. Our dedicated team is ready to assist you with any home-related matters. Reach out to us using the contact
+                 form below, and we'll get back to you promptly. Your satisfaction is our priority, and we look forward to hearing from you.</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
@@ -45,7 +46,7 @@
           <div class="col-sm-12 section-t8">
             <div class="row">
               <div class="col-md-7">
-                <form action="{% url 'contact' %}" method="POST" role="form" class="php-email-form">
+                <form action="{% url 'contact' %}" method="POST" class="form-a">
                   {% include 'includes/messages.html' %}
                   {% csrf_token %}
                   <div class="row">
@@ -69,13 +70,7 @@
                         <textarea name="message" class="form-control" name="message" cols="45" rows="8" placeholder="Message" required></textarea>
                       </div>
                     </div>
-                    <div class="col-md-12 my-3">
-                      <div class="mb-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
-                      </div>
-                    </div>
+
 
                     <div class="col-md-12 text-center">
                       <button type="submit" class="btn btn-a">Send Message</button>
@@ -83,7 +78,7 @@
                   </div>
                 </form>
               </div>
-              <div class="col-md-5 section-md-t3">
+               <div class="col-md-5 section-md-t3">
                 <div class="icon-box section-b2">
                   <div class="icon-box-icon">
                     <span class="bi bi-envelope"></span>
@@ -94,10 +89,18 @@
                     </div>
                     <div class="icon-box-content">
                       <p class="mb-1">Email.
-                        <span class="color-a">contact@example.com</span>
+                        <span class="color-a">
+                        <a href="mailto:testingprojectdjango@gmail.com">homehub@gmail.com
+                          </a>
+                        </span>
                       </p>
                       <p class="mb-1">Phone.
-                        <span class="color-a">+54 356 945234</span>
+                        <span class="color-a">
+                          <a href="tel:+1(346)564-1234">
+                            +1(346)564-1234
+
+                          </a>
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -112,8 +115,9 @@
                     </div>
                     <div class="icon-box-content">
                       <p class="mb-1">
-                        Manhattan, Nueva York 10036,
-                        <br> EE. UU.
+                        <a href="https://www.google.com/maps/search/?api=1&query=40.7128,-74.0060" target="_blank">New York City</a>
+
+                        <br>
                       </p>
                     </div>
                   </div>
@@ -130,25 +134,21 @@
                       <div class="socials-footer">
                         <ul class="list-inline">
                           <li class="list-inline-item">
-                            <a href="#" class="link-one">
+                            <a href="https://www.facebook.com" class="link-one" target="_blank">
                               <i class="bi bi-facebook" aria-hidden="true"></i>
                             </a>
                           </li>
                           <li class="list-inline-item">
-                            <a href="#" class="link-one">
+                            <a href="https://www.twitter.com" class="link-one" target="_blank">
                               <i class="bi bi-twitter" aria-hidden="true"></i>
                             </a>
                           </li>
                           <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-instagram" aria-hidden="true"></i>
+                            <a href="https://www.instagram.com" class="link-one" target="_blank">
+                              <i class="bi bi-instagram" aria-hidden="true" ></i>
                             </a>
                           </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-linkedin" aria-hidden="true"></i>
-                            </a>
-                          </li>
+
                         </ul>
                       </div>
                     </div>
