@@ -74,8 +74,8 @@ def register(request):
                 else:
                     user = User.objects.create_user(first_name=firstname, last_name=lastname, username=username, email=email, password=password)
                     auth.login(request,user)
-                    messages.success(request,'You are not logged in !')
-                    return redirect('dashboard')
+                    messages.success(request,'You are now Successfully Register Please Enter Your Credentials !')
+                    return redirect('login')
                     user.save()
                     messages.success(request,'You Are Successfully Registered')
                     return redirect('login')
